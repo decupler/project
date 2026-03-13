@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit SEO BeTomorrow 2026 — Roadmap & Quick Wins</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & Variables ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0F1B3C;
+    --teal:   #4F46E5;
+    --teal2:  #3730A3;
+    --violet: #6C3DEB;
+    --violet2:#8B5CF6;
+    --white:  #FFFFFF;
+    --light:  #F5F8FA;
+    --gray:   #64748B;
+    --dark:   #1E293B;
+    --orange: #F59E0B;
+    --red:    #EF4444;
+    --green:  #10B981;
+    --border: #E2E8F0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #fff;
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.35rem; font-weight: 800;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--teal); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--gray);
+    font-size: 0.9rem; font-weight: 500;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta {
+    background: var(--violet);
+    color: #fff; border: none;
+    padding: 10px 22px; border-radius: 8px;
+    font-size: 0.875rem; font-weight: 600;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background .2s, transform .15s;
+  }
+  .nav-cta:hover { background: var(--violet2); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: calc(100vh - 68px);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; gap: 4rem;
+    padding: 6rem 8% 5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0,180,166,0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 10% 90%, rgba(108,61,235,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,180,166,0.1); border: 1px solid rgba(0,180,166,0.3);
+    color: var(--teal2); border-radius: 100px;
+    padding: 6px 16px; font-size: 0.8rem; font-weight: 600;
+    margin-bottom: 1.5rem; width: fit-content;
+  }
+  .hero-badge::before { content: '●'; color: var(--teal); font-size: 0.6rem; }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    line-height: 1.08; font-weight: 800;
+    color: var(--navy); letter-spacing: -0.03em;
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 em { font-style: normal; color: var(--teal); }
+  .hero h1 strong { color: var(--violet); }
+
+  .hero-sub {
+    font-size: 1.1rem; color: var(--gray);
+    max-width: 480px; line-height: 1.65; margin-bottom: 2rem;
+  }
+
+  .hero-checks { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+  .hero-check {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.95rem; color: var(--dark);
+  }
+  .check-icon {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--teal); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 0.7rem; margin-top: 1px;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--violet);
+    color: #fff; border: none;
+    padding: 14px 28px; border-radius: 10px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all .2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--violet2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(108,61,235,0.3); }
+  .btn-outline {
+    background: transparent; color: var(--navy);
+    border: 2px solid var(--border);
+    padding: 12px 26px; border-radius: 10px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all .2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { border-color: var(--navy); transform: translateY(-2px); }
+
+  /* ── HERO RIGHT: Floating dashboard ── */
+  .hero-visual { position: relative; }
+  .dashboard-card {
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    position: relative;
+  }
+  .dashboard-title {
+    font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .live-dot {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.75rem; color: var(--green); font-weight: 500; margin-left: auto;
+  }
+  .live-dot::before { content: '●'; font-size: 0.55rem; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity: 0.3; } }
+
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+  .stat-box {
+    background: var(--light); border-radius: 10px;
+    padding: 0.9rem 1rem;
+  }
+  .stat-val {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.6rem; font-weight: 800;
+  }
+  .stat-val.blue { color: #2563EB; }
+  .stat-val.violet { color: var(--violet); }
+  .stat-val.orange { color: var(--orange); }
+  .stat-val.green { color: var(--green); }
+  .stat-val.red { color: var(--red); }
+  .stat-val.teal { color: var(--teal2); }
+  .stat-label { font-size: 0.78rem; color: var(--gray); margin-top: 2px; }
+
+  .bar-section { margin-top: 0.5rem; }
+  .bar-row { margin-bottom: 0.7rem; }
+  .bar-header { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--gray); margin-bottom: 4px; }
+  .bar-track { background: #E2E8F0; border-radius: 100px; height: 7px; }
+  .bar-fill { height: 7px; border-radius: 100px; }
+  .bar-fill.teal { background: var(--teal); }
+  .bar-fill.violet { background: var(--violet); }
+  .bar-fill.red { background: var(--red); }
+
+  /* Floating badges */
+  .float-badge {
+    position: absolute;
+    background: #fff; border-radius: 12px; padding: 10px 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    font-weight: 700; font-size: 0.9rem;
+    border: 1px solid var(--border);
+    animation: floatY 3s ease-in-out infinite;
+  }
+  .float-badge.top-right { top: -18px; right: -14px; color: var(--violet); }
+  .float-badge sub { font-size: 0.7rem; font-weight: 400; color: var(--gray); display: block; }
+  @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 8%; }
+  .section-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--teal2); margin-bottom: 1rem;
+  }
+  .section-badge::before { content: '◆'; font-size: 0.5rem; }
+  .section-title {
+    font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800;
+    color: var(--navy); letter-spacing: -0.03em; line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .section-title em { font-style: normal; color: var(--violet); }
+  .section-title span { color: var(--teal); }
+  .section-sub { font-size: 1.05rem; color: var(--gray); max-width: 560px; line-height: 1.65; }
+
+  /* ── ÉTAT DES LIEUX (chiffres) ── */
+  .kpi-section { background: var(--navy); }
+  .kpi-section .section-badge { color: var(--teal); }
+  .kpi-section .section-title { color: #fff; }
+  .kpi-section .section-sub { color: rgba(255,255,255,0.6); }
+
+  .kpi-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem;
+  }
+  .kpi-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 1.6rem 1.4rem;
+    transition: transform .25s, background .25s;
+  }
+  .kpi-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.1); }
+  .kpi-card-val {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.8rem; font-weight: 800;
+    line-height: 1; margin-bottom: 0.4rem;
+  }
+  .kpi-card-label { font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 0.3rem; }
+  .kpi-card-sub { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+
+  .findings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+  .finding-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 1rem 1.2rem;
+  }
+  .finding-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+  .finding-text { font-size: 0.93rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+  .finding-text strong { color: #fff; display: block; margin-bottom: 2px; }
+
+  /* ── AUDIT TECHNIQUE ── */
+  .technique-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+
+  .audit-card {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 18px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: box-shadow .25s;
+  }
+  .audit-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+  .audit-card-header {
+    padding: 1.1rem 1.5rem;
+    font-weight: 700; font-size: 1rem; color: #fff;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .audit-card-header.teal { background: var(--teal2); }
+  .audit-card-header.navy { background: var(--navy); }
+  .audit-card-body { padding: 1.2rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .audit-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 0.85rem 1rem; background: var(--light); border-radius: 10px;
+  }
+  .severity-dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  }
+  .severity-dot.red { background: var(--red); }
+  .severity-dot.orange { background: var(--orange); }
+  .severity-dot.yellow { background: #EAB308; }
+
+  .audit-item-text { flex: 1; }
+  .audit-item-label { font-size: 0.9rem; font-weight: 600; color: var(--dark); }
+  .audit-item-sub { font-size: 0.78rem; color: var(--gray); }
+  .severity-tag {
+    font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 100px;
+  }
+  .severity-tag.critique { background: rgba(239,68,68,0.1); color: var(--red); }
+  .severity-tag.important { background: rgba(245,158,11,0.1); color: var(--orange); }
+  .severity-tag.modere { background: rgba(234,179,8,0.1); color: #CA8A04; }
+
+  /* PageSpeed scores */
+  .psi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 1.2rem 1.5rem; }
+  .psi-score {
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    background: var(--light); border-radius: 12px; padding: 1.2rem 0.8rem;
+  }
+  .score-circle {
+    width: 64px; height: 64px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem; font-weight: 800; color: #fff;
+  }
+  .score-circle.red { background: var(--red); }
+  .score-circle.orange { background: var(--orange); }
+  .score-circle.green { background: var(--green); }
+  .psi-label { font-size: 0.8rem; font-weight: 600; color: var(--dark); text-align: center; }
+  .psi-note { font-size: 0.72rem; color: var(--gray); }
+
+  /* ── QUICK WINS ── */
+  .quickwins-section { background: var(--light); }
+
+  .qw-table-wrap {
+    margin-top: 3rem;
+    background: #fff; border-radius: 18px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: var(--navy); }
+  thead th {
+    padding: 1rem 1.2rem; text-align: left;
+    font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.8);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--light); }
+  tbody td { padding: 1rem 1.2rem; font-size: 0.9rem; color: var(--dark); }
+  .td-kw { font-weight: 600; }
+  .td-imp { font-weight: 700; color: var(--violet); }
+  .td-ctr { color: var(--red); font-weight: 600; }
+  .td-action { color: var(--teal2); font-weight: 600; }
+  .td-pos { font-weight: 600; }
+
+  .qw-note {
+    margin-top: 1.5rem;
+    background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid var(--orange);
+    border-radius: 10px; padding: 1rem 1.2rem;
+    font-size: 0.9rem; color: #92400E; line-height: 1.6;
+    display: flex; gap: 10px;
+  }
+
+  /* ── CONTENU STRATEGY ── */
+  .strategy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .strat-card {
+    border-radius: 18px; overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform .25s;
+  }
+  .strat-card:hover { transform: translateY(-6px); }
+  .strat-header {
+    padding: 1.2rem 1.4rem;
+    color: #fff; font-weight: 700; font-size: 1rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .strat-header.violet { background: var(--violet); }
+  .strat-header.teal { background: var(--teal2); }
+  .strat-header.navy { background: var(--navy); }
+  .strat-body { background: #fff; padding: 1.2rem 1.4rem; display: flex; flex-direction: column; gap: 0.7rem; }
+  .strat-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 0.88rem; color: var(--dark); line-height: 1.5;
+  }
+  .strat-bullet {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--teal); flex-shrink: 0; margin-top: 6px;
+  }
+
+  /* ── IDÉES CONTENUS ── */
+  .ideas-section { background: var(--navy); }
+  .ideas-section .section-title { color: #fff; }
+  .ideas-section .section-sub { color: rgba(255,255,255,0.6); }
+  .ideas-section .section-badge { color: var(--teal); }
+
+  .ideas-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+  .ideas-table {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; overflow: hidden;
+  }
+  .ideas-table thead tr { background: rgba(255,255,255,0.1); }
+  .ideas-table thead th { color: rgba(255,255,255,0.7); }
+  .ideas-table tbody tr { border-color: rgba(255,255,255,0.06); }
+  .ideas-table tbody tr:hover { background: rgba(255,255,255,0.06); }
+  .ideas-table tbody td { color: rgba(255,255,255,0.8); }
+  .ideas-table .td-kw { color: #fff; }
+  .ideas-table .td-imp { color: var(--teal); }
+  .ideas-table .td-action { color: var(--violet2); }
+
+  /* ── BACKLINKS ── */
+  .bl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .bl-card {
+    border-radius: 18px; overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform .25s;
+  }
+  .bl-card:hover { transform: translateY(-6px); }
+  .bl-header {
+    padding: 1.4rem; color: #fff; position: relative;
+  }
+  .bl-header.teal { background: var(--teal2); }
+  .bl-header.violet { background: var(--violet); }
+  .bl-header.navy { background: var(--navy); }
+  .bl-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 3rem; font-weight: 800;
+    opacity: 0.15; position: absolute; right: 1rem; top: 0.5rem; line-height: 1;
+  }
+  .bl-header h3 { font-size: 1.05rem; font-weight: 700; position: relative; z-index: 1; }
+  .bl-body { background: #fff; padding: 1.2rem 1.4rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .bl-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 0.88rem; color: var(--dark); line-height: 1.5;
+    padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+  }
+  .bl-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .bl-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+  .bl-dot.teal { background: var(--teal); }
+  .bl-dot.violet { background: var(--violet); }
+  .bl-dot.navy { background: var(--navy); }
+
+  /* ── ROADMAP ── */
+  .roadmap-section { background: var(--light); }
+  .roadmap-timeline { position: relative; margin-top: 3rem; }
+  .roadmap-line {
+    position: absolute; top: 30px; left: 0; right: 0; height: 3px;
+    background: linear-gradient(to right, var(--red), var(--orange), var(--teal), var(--navy));
+    border-radius: 10px; z-index: 0;
+  }
+  .roadmap-months { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; position: relative; z-index: 1; }
+  .roadmap-month {}
+  .rm-circle {
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.4rem; font-weight: 800;
+    color: #fff; margin-bottom: 1.2rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .rm-circle.red { background: var(--red); }
+  .rm-circle.orange { background: var(--orange); }
+  .rm-circle.teal { background: var(--teal); }
+  .rm-circle.navy { background: var(--navy); }
+
+  .rm-card {
+    background: #fff; border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transition: transform .25s;
+  }
+  .rm-card:hover { transform: translateY(-4px); }
+  .rm-header {
+    padding: 0.8rem 1rem; color: #fff;
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .rm-header.red { background: var(--red); }
+  .rm-header.orange { background: var(--orange); }
+  .rm-header.teal { background: var(--teal); }
+  .rm-header.navy { background: var(--navy); }
+  .rm-title { font-size: 0.95rem; font-weight: 700; color: var(--navy); padding: 0.8rem 1rem 0; }
+  .rm-tasks { padding: 0.6rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .rm-task {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 0.83rem; color: var(--dark); line-height: 1.4;
+  }
+  .rm-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+
+  /* ── APPROCHE MENSUELLE ── */
+  .monthly-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+  .monthly-left h3 { font-size: 1.8rem; font-weight: 800; color: var(--navy); margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .monthly-left p { color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
+  .monthly-perks { display: flex; flex-direction: column; gap: 0.6rem; }
+  .monthly-perk {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.9rem; font-weight: 500; color: var(--dark);
+  }
+  .perk-icon {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: var(--teal); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; flex-shrink: 0;
+  }
+
+  .rhythm-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .rhythm-card {
+    display: flex; align-items: center; gap: 1.2rem;
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.1rem 1.3rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform .2s;
+  }
+  .rhythm-card:hover { transform: translateX(4px); }
+  .rhythm-week {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--teal2);
+    min-width: 80px;
+  }
+  .rhythm-emoji { font-size: 1.4rem; }
+  .rhythm-info h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+  .rhythm-info p { font-size: 0.82rem; color: var(--gray); margin-top: 2px; }
+
+  /* ── NEXT STEPS / CTA ── */
+  .cta-section { background: var(--navy); text-align: center; }
+  .cta-section .section-title { color: #fff; }
+  .cta-sub { color: rgba(255,255,255,0.6); font-size: 1.05rem; max-width: 520px; margin: 0 auto 3rem; line-height: 1.65; }
+
+  .next-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 780px; margin: 0 auto 3rem; }
+  .next-card {
+    display: flex; align-items: flex-start; gap: 1rem; text-align: left;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 1.2rem 1.3rem;
+    transition: background .2s;
+  }
+  .next-card:hover { background: rgba(255,255,255,0.1); }
+  .next-num {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--teal); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 800;
+    flex-shrink: 0;
+  }
+  .next-info h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .next-info p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-cta-main {
+    background: var(--violet); color: #fff; border: none;
+    padding: 16px 36px; border-radius: 12px;
+    font-size: 1.05rem; font-weight: 700;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all .2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-cta-main:hover { background: var(--violet2); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(108,61,235,0.4); }
+  .btn-cta-out {
+    background: transparent; color: rgba(255,255,255,0.8);
+    border: 2px solid rgba(255,255,255,0.2);
+    padding: 14px 32px; border-radius: 12px;
+    font-size: 1rem; font-weight: 600;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all .2s; text-decoration: none;
+  }
+  .btn-cta-out:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080F1F; padding: 1.5rem 8%;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.82rem; color: rgba(255,255,255,0.3);
+  }
+  footer a { color: var(--teal); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: .7s; }
+  .fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: .7s; }
+  .fade-up-delay-3 { animation-delay: 0.35s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: .7s; }
+
+  /* ── DIVIDERS ── */
+  .divider { height: 1px; background: var(--border); margin: 0 8%; }
+
+
+  /* ── ROADMAP 12 MOIS ── */
+  .roadmap-timeline-12 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+  .rm12-month {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    transition: transform .2s;
+  }
+  .rm12-month:hover { transform: translateY(-4px); }
+  .rm12-header {
+    padding: 0.8rem 1rem;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .rm12-mois {
+    font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.1em; color: rgba(255,255,255,0.7);
+  }
+  .rm12-titre {
+    font-size: 0.88rem; font-weight: 700; color: #fff; line-height: 1.3;
+  }
+  .rm12-body {
+    background: #fff; padding: 0.8rem 0.9rem;
+    display: flex; flex-direction: column; gap: 0.45rem;
+  }
+  @media (max-width: 1024px) {
+    .roadmap-timeline-12 { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .roadmap-timeline-12 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-visual { display: none; }
+    .kpi-grid { grid-template-columns: repeat(2,1fr); }
+    .technique-grid, .ideas-cols, .monthly-grid { grid-template-columns: 1fr; }
+    .strategy-grid, .bl-grid { grid-template-columns: repeat(2,1fr); }
+    .roadmap-months { grid-template-columns: repeat(2,1fr); }
+    .roadmap-line { display: none; }
+    .next-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 4rem 5%; }
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .strategy-grid, .bl-grid { grid-template-columns: 1fr; }
+    .findings-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 5%; }
+    .nav-links { display: none; }
+    .hero { padding: 4rem 5% 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left fade-up">
+    <div class="hero-badge">Audit SEO 2026 · betomorrow.com</div>
+    <h1>
+      Transformez vos<br>
+      <em>850 000 impressions</em><br>
+      en <strong>vraie croissance</strong>
+    </h1>
+    <p class="hero-sub">
+      Vous êtes déjà visibles. Mais vos pages restent en page 2-3.
+      On a identifié les leviers exacts pour exploser votre CTR et votre trafic organique — sans repartir de zéro.
+    </p>
+    <div class="hero-checks">
+      <div class="hero-check"><div class="check-icon">✓</div> 18 773 impressions sur « agence IA » — CTR de 0,17% seulement</div>
+      <div class="hero-check"><div class="check-icon">✓</div> Score performance mobile critique : 27/100 sur PageSpeed</div>
+      <div class="hero-check"><div class="check-icon">✓</div> 118 pages identifiées avec potentiel d'optimisation immédiat</div>
+    </div>
+
+  </div>
+
+  <div class="hero-visual fade-up-delay-2">
+    <div class="float-badge top-right">
+      +850K<br><sub>Impressions / mois</sub>
+    </div>
+    <div class="dashboard-card">
+      <div class="dashboard-title">
+        État des lieux SEO — BeTomorrow
+        <span class="live-dot">En direct</span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-val blue">118</div>
+          <div class="stat-label">Pages à optimiser</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val red">27</div>
+          <div class="stat-label">Perf. mobile /100</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val orange">0,17%</div>
+          <div class="stat-label">CTR « agence IA »</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val green">100</div>
+          <div class="stat-label">Score SEO /100</div>
+        </div>
+      </div>
+      <div class="bar-section">
+        <div class="bar-row">
+          <div class="bar-header"><span>Opportunités identifiées</span><span>87%</span></div>
+          <div class="bar-track"><div class="bar-fill teal" style="width:87%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-header"><span>Potentiel Quick Wins</span><span>72%</span></div>
+          <div class="bar-track"><div class="bar-fill violet" style="width:72%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-header"><span>Urgence technique</span><span>94%</span></div>
+          <div class="bar-track"><div class="bar-fill red" style="width:94%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉTAT DES LIEUX -->
+<section class="kpi-section" id="etat">
+  <div class="section-badge">01 — État des lieux</div>
+  <h2 class="section-title">Les chiffres <em>qui ne mentent pas</em></h2>
+  <p class="section-sub">Voici ce que l'analyse de votre Google Search Console et Screaming Frog révèle en ce moment.</p>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-card-val" style="color: var(--teal)">850K+</div>
+      <div class="kpi-card-label">Impressions / mois</div>
+      <div class="kpi-card-sub">Visibilité organique totale (GSC)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card-val" style="color: #10B981">100/100</div>
+      <div class="kpi-card-label">Score SEO PageSpeed</div>
+      <div class="kpi-card-sub">Balisage et structure au top ✅</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card-val" style="color: var(--orange)">118</div>
+      <div class="kpi-card-label">Pages à optimiser</div>
+      <div class="kpi-card-sub">Statut « Optimisation » dans l'analyse</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card-val" style="color: var(--red)">27/100</div>
+      <div class="kpi-card-label">Performance mobile</div>
+      <div class="kpi-card-sub">⚡ Priorité critique — Core Web Vitals</div>
+    </div>
+  </div>
+
+  <div class="findings-grid">
+    <div class="finding-item">
+      <div class="finding-icon">🎯</div>
+      <div class="finding-text">
+        <strong>« Agence IA » : un mot-clé trop concurrentiel</strong>
+        18 773 impressions mais CTR de 0,17% — ce mot-clé est dominé par des acteurs très forts. La bonne stratégie : cibler des variantes longue traîne accessibles (« développement application IA », « intégration IA entreprise », « agence IA Bordeaux ») et construire l'autorité domaine progressivement avant de viser ce mot-clé générique.
+      </div>
+    </div>
+    <div class="finding-item">
+      <div class="finding-icon">⚠️</div>
+      <div class="finding-text">
+        <strong>Metadata hors normes sur 70 pages</strong>
+        20 titles trop courts ou trop longs · 50 meta descriptions hors normes — impact direct sur le CTR.
+      </div>
+    </div>
+    <div class="finding-item">
+      <div class="finding-icon">🖼️</div>
+      <div class="finding-text">
+        <strong>50 images sans balise alt pertinente</strong>
+        Signal SEO important non exploité. Chaque image devrait cibler un mot-clé de sa page.
+      </div>
+    </div>
+    <div class="finding-item">
+      <div class="finding-icon">🔗</div>
+      <div class="finding-text">
+        <strong>14 erreurs 404/301/308 à corriger</strong>
+        Du jus de lien perdu. Ces redirections et pages mortes impactent votre crawl budget et autorité.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIT TECHNIQUE -->
+<section id="technique">
+  <div class="section-badge">02 — Audit Technique</div>
+  <h2 class="section-title">Ce que <span>Screaming Frog</span><br>& PageSpeed ont trouvé</h2>
+  <p class="section-sub">Les fondations d'abord. Ces corrections sont non-négociables pour débloquer la suite.</p>
+
+  <div class="technique-grid">
+    <!-- Screaming Frog -->
+    <div class="audit-card">
+      <div class="audit-card-header teal">🕷️ &nbsp;Screaming Frog — Erreurs détectées</div>
+      <div class="audit-card-body">
+        <div class="audit-item">
+          <div class="severity-dot red"></div>
+          <div class="audit-item-text">
+            <div class="audit-item-label">14 erreurs 404 / 301 / 308</div>
+            <div class="audit-item-sub">Pages mortes et redirections chaînées — perte d'autorité de lien</div>
+          </div>
+          <span class="severity-tag critique">Critique</span>
+        </div>
+        <div class="audit-item">
+          <div class="severity-dot orange"></div>
+          <div class="audit-item-text">
+            <div class="audit-item-label">20 pages : title trop court ou trop long</div>
+            <div class="audit-item-sub">Hors de la fenêtre 50-60 caractères recommandée par Google</div>
+          </div>
+          <span class="severity-tag important">Important</span>
+        </div>
+        <div class="audit-item">
+          <div class="severity-dot orange"></div>
+          <div class="audit-item-text">
+            <div class="audit-item-label">50 pages : meta description hors normes</div>
+            <div class="audit-item-sub">Impact direct sur le CTR dans les SERPs — à réécrire avec le mot-clé cible</div>
+          </div>
+          <span class="severity-tag important">Important</span>
+        </div>
+        <div class="audit-item">
+          <div class="severity-dot yellow"></div>
+          <div class="audit-item-text">
+            <div class="audit-item-label">50 images sans balise alt pertinente</div>
+            <div class="audit-item-sub">Opportunité SEO image manquée + problème d'accessibilité</div>
+          </div>
+          <span class="severity-tag modere">Modéré</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PageSpeed -->
+    <div class="audit-card">
+      <div class="audit-card-header navy">⚡ &nbsp;PageSpeed Insights — Scores actuels</div>
+      <div class="psi-grid">
+        <div class="psi-score">
+          <div class="score-circle red">27</div>
+          <div class="psi-label">Performance Mobile</div>
+          <div class="psi-note">⚠️ Critique</div>
+        </div>
+        <div class="psi-score">
+          <div class="score-circle orange">89</div>
+          <div class="psi-label">Accessibilité</div>
+          <div class="psi-note">✓ Bon</div>
+        </div>
+        <div class="psi-score">
+          <div class="score-circle orange">81</div>
+          <div class="psi-label">Bonnes pratiques</div>
+          <div class="psi-note">✓ Bon</div>
+        </div>
+        <div class="psi-score">
+          <div class="score-circle green">100</div>
+          <div class="psi-label">SEO Score</div>
+          <div class="psi-note">✅ Excellent</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- QUICK WINS GSC -->
+<section class="quickwins-section" id="quickwins">
+  <div class="section-badge">03 — Quick Wins GSC</div>
+  <h2 class="section-title">Les pages qui ne demandent<br>qu'à <em>passer en page 1</em></h2>
+  <p class="section-sub">Ces requêtes cumulent des milliers d'impressions mais un CTR quasi nul. Elles sont en pages 2-3 — un coup d'optimisation ciblé peut suffire.</p>
+
+  <div class="qw-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Requête</th>
+          <th>Impressions</th>
+          <th>Clics</th>
+          <th>CTR</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-kw">développement web sur mesure</td><td class="td-imp">1 480</td><td>4</td><td class="td-ctr">0,27%</td><td class="td-pos">14,2</td></tr>
+        <tr><td class="td-kw">agence intelligence artificielle</td><td class="td-imp">8 835</td><td>1</td><td class="td-ctr">0,01%</td><td class="td-pos">22,5</td></tr>
+        <tr><td class="td-kw">pwa (Progressive Web App)</td><td class="td-imp">7 926</td><td>2</td><td class="td-ctr">0,03%</td><td class="td-pos">18,4</td></tr>
+        <tr><td class="td-kw">mixpanel vs amplitude</td><td class="td-imp">3 152</td><td>16</td><td class="td-ctr">0,51%</td><td class="td-pos">11,6</td></tr>
+        <tr><td class="td-kw">innovation digitale</td><td class="td-imp">3 061</td><td>2</td><td class="td-ctr">0,07%</td><td class="td-pos">10,6</td></tr>
+        <tr><td class="td-kw">agence product management</td><td class="td-imp">1 651</td><td>1</td><td class="td-ctr">0,06%</td><td class="td-pos">17,8</td></tr>
+        <tr><td class="td-kw">RAG chatbot</td><td class="td-imp">1 158</td><td>7</td><td class="td-ctr">0,60%</td><td class="td-pos">11,6</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="qw-note">
+    <span>💡</span>
+    <span>Ces pages sont <strong>déjà indexées par Google</strong> — un travail d'optimisation ciblé (title, H1, enrichissement du contenu) peut suffire à les faire passer en page 1 et multiplier les clics par 5 à 10x sans créer de nouveau contenu.</span>
+  </div>
+</section>
+
+<!-- STRATÉGIE CONTENU -->
+<section id="contenu">
+  <div class="section-badge">04 — Stratégie Contenu</div>
+  <h2 class="section-title">Cocon sémantique,<br><em>PAA</em> & <span>GEO</span></h2>
+  <p class="section-sub">Trois piliers complémentaires pour dominer les SERPs et commencer à apparaître dans les réponses des IA génératives.</p>
+
+  <div class="strategy-grid">
+    <div class="strat-card">
+      <div class="strat-header violet">🌐 &nbsp;Topic Clusters</div>
+      <div class="strat-body">
+        <div class="strat-item"><div class="strat-bullet"></div><span>Piliers identifiés : IA & Agence IA, Product Development, Product Management</span></div>
+        <div class="strat-item"><div class="strat-bullet"></div><span>Créer des pages satellites pour chaque sous-thématique identifiée</span></div>
+        <div class="strat-item"><div class="strat-bullet"></div><span>Maillage interne structuré : pilier → clusters → articles longue traîne</span></div>
+        <div class="strat-item"><div class="strat-bullet"></div><span>Ex : pages « RAG chatbot », « IA responsable », « agent IA », « Fine-tuning »</span></div>
+      </div>
+    </div>
+    <div class="strat-card">
+      <div class="strat-header teal">❓ &nbsp;People Also Ask</div>
+      <div class="strat-body">
+        <div class="strat-item"><div class="strat-bullet"></div><span>Extraire les questions PAA sur vos mots-clés prioritaires (IA, Product, Agile…)</span></div>
+        <div class="strat-item"><div class="strat-bullet"></div><span>Créer des FAQ structurées avec schema.org/FAQPage pour apparaître en position 0</span></div>
+        <div class="strat-item"><div class="strat-bullet"></div><span>Longue traîne conversationnelle très ciblée à faible concurrence</span></div>
+        <div class="strat-item"><div class="strat-bullet"></div><span>Ex : « Comment choisir une agence IA en 2026 ? »</span></div>
+      </div>
+    </div>
+    <div class="strat-card">
+      <div class="strat-header navy">🤖 &nbsp;GEO — Generative Engine Optimization</div>
+      <div class="strat-body">
+        <div class="strat-item"><div class="strat-bullet"></div><span>Rédiger des contenus au format « prompt » : questions longues et conversationnelles</span></div>
+        <div class="strat-item"><div class="strat-bullet"></div><span>Être cité dans les AI Overviews Google et les réponses ChatGPT, Perplexity</span></div>
+        <div class="strat-item"><div class="strat-bullet"></div><span>Format : intro directe + réponse concise + sources claires</span></div>
+        <div class="strat-item"><div class="strat-bullet"></div><span>Ex : « Quelle agence choisir pour développer une IA en 2026 ? »</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IDÉES CONTENUS FR -->
+<section class="ideas-section" id="idees">
+  <div class="section-badge">05 — Idées de Contenus</div>
+  <h2 class="section-title">Mots-clés absents ou <em style="color:var(--teal)">sous-exploités</em></h2>
+  <p class="section-sub">Source : analyse Semrush + GSC. Volume réel, difficulté faible — des opportunités à saisir maintenant.</p>
+
+  <div class="ideas-cols">
+    <div class="ideas-table">
+      <table>
+        <thead>
+          <tr><th>Mot-clé</th><th>Vol.</th><th>KD</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-kw">conseil en transformation digitale</td><td class="td-imp">880</td><td>22</td></tr>
+          <tr><td class="td-kw">migration cloud</td><td class="td-imp">320</td><td>26</td></tr>
+          <tr><td class="td-kw">product discovery</td><td class="td-imp">320</td><td>8</td></tr>
+          <tr><td class="td-kw">formation product management</td><td class="td-imp">260</td><td>15</td></tr>
+          <tr><td class="td-kw">Flutter vs React Native</td><td class="td-imp">210</td><td>8</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ideas-table">
+      <table>
+        <thead>
+          <tr><th>Mot-clé</th><th>Vol.</th><th>KD</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-kw">stratégie data driven</td><td class="td-imp">210</td><td>14</td></tr>
+          <tr><td class="td-kw">transformation numérique industrie</td><td class="td-imp">170</td><td>16</td></tr>
+          <tr><td class="td-kw">agilité à l'échelle</td><td class="td-imp">110</td><td>14</td></tr>
+          <tr><td class="td-kw">application mobile entreprise</td><td class="td-imp">110</td><td>10</td></tr>
+          <tr><td class="td-kw">cabinet conseil digital</td><td class="td-imp">110</td><td>25</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- BACKLINKS -->
+<section id="backlinks">
+  <div class="section-badge">06 — Stratégie Backlinks</div>
+  <h2 class="section-title">Construire votre <em>autorité</em><br>de domaine</h2>
+  <p class="section-sub">Le contenu seul ne suffit pas. Il faut des liens de qualité pour que Google vous place devant vos concurrents sur les mots-clés à enjeu.</p>
+
+  <div class="bl-grid" style="grid-template-columns: repeat(2, 1fr)">
+    <div class="bl-card">
+      <div class="bl-header violet">
+        <div class="bl-num">01</div>
+        <h3>Guest Posts</h3>
+      </div>
+      <div class="bl-body">
+        <div class="bl-item"><div class="bl-dot violet"></div><span>Blogs tech français avec audience produit, IA et transformation digitale</span></div>
+        <div class="bl-item"><div class="bl-dot violet"></div><span>Partenaires clients et fournisseurs tech : AWS, Mixpanel, Amplitude, etc.</span></div>
+        <div class="bl-item"><div class="bl-dot violet"></div><span>Écoles et universités partenaires sur les formations Product & IA</span></div>
+        <div class="bl-item"><div class="bl-dot violet"></div><span>Minimum 1 article invité / mois avec anchor texte stratégique ciblé</span></div>
+      </div>
+    </div>
+    <div class="bl-card">
+      <div class="bl-header navy">
+        <div class="bl-num">02</div>
+        <h3>Link Building Sémantique</h3>
+      </div>
+      <div class="bl-body">
+        <div class="bl-item"><div class="bl-dot navy"></div><span>Identifier les backlinks de vos concurrents via Semrush Link Gap Analysis</span></div>
+        <div class="bl-item"><div class="bl-dot navy"></div><span>Broken link building sur ressources IA, Product Management et transformation digitale</span></div>
+        <div class="bl-item"><div class="bl-dot navy"></div><span>Annuaires professionnels et plateformes sectorielles (Tech.eu, FrenchTech…)</span></div>
+        <div class="bl-item"><div class="bl-dot navy"></div><span>Mentions non linkées → transformer en vrais backlinks</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ROADMAP -->
+<section class="roadmap-section" id="roadmap">
+  <div class="section-badge">07 — Roadmap</div>
+  <h2 class="section-title">Programme <em>12 mois</em> —<br>chaque mois, un peu de tout</h2>
+  <p class="section-sub">Chaque mois : corrections techniques, optimisation ou création de contenus, et une action backlinks. 2 jours par mois, chaque action est priorisée par impact réel.</p>
+
+    <div class="roadmap-timeline-12">
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--violet)">
+        <span class="rm12-mois">Avr</span>
+        <span class="rm12-titre">Product Development I</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--violet)"></div><span>Corrections 404, titles, metas prioritaires</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--violet)"></div><span>Optimisation silo Product Development</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--violet)"></div><span>Création : article développement web sur mesure</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--teal)">
+        <span class="rm12-mois">Mai</span>
+        <span class="rm12-titre">Product Development II</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal)"></div><span>Audit Core Web Vitals mobile (cible 75+)</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal)"></div><span>Optimisation suite silo Product Development</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal)"></div><span>Création : comparatif Flutter vs React Native</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--navy)">
+        <span class="rm12-mois">Jun</span>
+        <span class="rm12-titre">IA & Agence IA I</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--navy)"></div><span>Optimisation maillage interne silo IA</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--navy)"></div><span>Optimisation silo IA & Agence IA (11 pages)</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--navy)"></div><span>Création : intégration IA entreprise</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--teal2)">
+        <span class="rm12-mois">Jul</span>
+        <span class="rm12-titre">IA & Agence IA II</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal2)"></div><span>Optimisation balises structurées (schema FAQ)</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal2)"></div><span>Optimisation suite silo IA & Agence IA</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal2)"></div><span>Création : RAG chatbot — guide complet</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--orange)">
+        <span class="rm12-mois">Aoû</span>
+        <span class="rm12-titre">Product Design & UX</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--orange)"></div><span>Audit crawl + optimisation crawl budget</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--orange)"></div><span>Optimisation silo Product Design & UX</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--orange)"></div><span>Création : article UX pour SaaS B2B</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--violet)">
+        <span class="rm12-mois">Sep</span>
+        <span class="rm12-titre">Product Management I</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--violet)"></div><span>Revue du maillage interne global</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--violet)"></div><span>Optimisation silo Product Management & Growth</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--violet)"></div><span>Création : product discovery — guide pratique</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--navy)">
+        <span class="rm12-mois">Oct</span>
+        <span class="rm12-titre">Secteurs & Industries</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--navy)"></div><span>Optimisation vitesse pages lourdes</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--navy)"></div><span>Optimisation silos Secteurs & Industries + PM suite</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--navy)"></div><span>Création : transformation numérique industrie</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--teal)">
+        <span class="rm12-mois">Nov</span>
+        <span class="rm12-titre">Formation & Data & Cloud</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal)"></div><span>Audit technique trimestriel (Screaming Frog)</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal)"></div><span>Optimisation silos Formation Academy + Data & Cloud</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal)"></div><span>Création : migration cloud — guide décideur</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--red)">
+        <span class="rm12-mois">Déc</span>
+        <span class="rm12-titre">About us</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--red)"></div><span>Optimisation performances pages institutionnelles</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--red)"></div><span>Optimisation silo About us (13 pages)</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--red)"></div><span>Création : page expertise conseil transformation</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--orange)">
+        <span class="rm12-mois">Jan</span>
+        <span class="rm12-titre">Projets Clients</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--orange)"></div><span>Bilan technique annuel + correctifs restants</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--orange)"></div><span>Optimisation silo Projets Clients (15 pages)</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--orange)"></div><span>Création : étude de cas client phare</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--violet)">
+        <span class="rm12-mois">Fév</span>
+        <span class="rm12-titre">Agile & Organisation</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--violet)"></div><span>Revue du cocon sémantique global</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--violet)"></div><span>Optimisation silo Agile & Organisation (7 pages)</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--violet)"></div><span>Création : agilité à l'échelle — article pilier</span></div>
+      </div>
+    </div>
+    <div class="rm12-month">
+      <div class="rm12-header" style="background:var(--teal2)">
+        <span class="rm12-mois">Mar</span>
+        <span class="rm12-titre">Bilan & Planification</span>
+      </div>
+      <div class="rm12-body">
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal2)"></div><span>Audit annuel complet + plan S2</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal2)"></div><span>Optimisation pages quick wins restantes</span></div>
+        <div class="rm-task"><div class="rm-dot" style="background:var(--teal2)"></div><span>Création : contenu GEO / AI Overviews</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROCHE MENSUELLE -->
+<section id="approche">
+  <div class="section-badge">08 — Notre approche</div>
+  <h2 class="section-title">2 jours par mois —<br><em>4 missions claires</em></h2>
+
+  <div class="monthly-grid">
+    <div class="monthly-left">
+      <h3>Un rythme structuré,<br>des résultats mesurables</h3>
+      <p>Chaque mois, les deux jours d'accompagnement ont une mission claire et définie à l'avance. Pas de dispersion : chaque action est priorisée par son impact réel sur le trafic et les conversions.</p>
+      <div class="monthly-perks">
+        <div class="monthly-perk"><div class="perk-icon">📊</div> Suivi des positions et du CTR chaque mois</div>
+        <div class="monthly-perk"><div class="perk-icon">✍️</div> Production de contenus optimisés prêts à publier</div>
+        <div class="monthly-perk"><div class="perk-icon">🔧</div> Corrections techniques continues et maillage interne</div>
+        <div class="monthly-perk"><div class="perk-icon">🔗</div> 1 action netlinking minimum par mois</div>
+      </div>
+    </div>
+
+    <div class="rhythm-cards">
+      <div class="rhythm-card">
+        <div class="rhythm-week">Jour 1</div>
+        <div class="rhythm-emoji">📊</div>
+        <div class="rhythm-info">
+          <h4>Analyse & reporting</h4>
+          <p>Chaque mois, on commence par lire les données GSC : positions, CTR, impressions, nouvelles opportunités à saisir</p>
+        </div>
+      </div>
+      <div class="rhythm-card">
+        <div class="rhythm-week">Jour 1</div>
+        <div class="rhythm-emoji">✍️</div>
+        <div class="rhythm-info">
+          <h4>Production de contenu</h4>
+          <p>1 à 2 pages ou articles ciblés selon le programme du mois — brief, rédaction, optimisation on-page</p>
+        </div>
+      </div>
+      <div class="rhythm-card">
+        <div class="rhythm-week">Jour 2</div>
+        <div class="rhythm-emoji">🔧</div>
+        <div class="rhythm-info">
+          <h4>Optimisations techniques</h4>
+          <p>Corrections techniques prioritaires du mois : maillage interne, metas, balises alt, performances</p>
+        </div>
+      </div>
+      <div class="rhythm-card">
+        <div class="rhythm-week">Jour 2</div>
+        <div class="rhythm-emoji">🔗</div>
+        <div class="rhythm-info">
+          <h4>Backlinks & outreach</h4>
+          <p>1 action netlinking ciblée : suivi des partenariats en cours, prospection de nouvelles opportunités</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" id="cta">
+  <div class="section-badge" style="color:var(--teal); justify-content:center">09 — Prochaines Étapes</div>
+  <h2 class="section-title" style="text-align:center">On lance ça <em>maintenant</em></h2>
+  <p class="cta-sub">Tout est prêt. Il ne manque plus que votre validation pour démarrer le premier sprint.</p>
+
+  <div class="next-grid">
+    <div class="next-card">
+      <div class="next-num">1</div>
+      <div class="next-info">
+        <h4>Validation de la roadmap</h4>
+        <p>Priorisation des actions selon vos ressources et objectifs business</p>
+      </div>
+    </div>
+    <div class="next-card">
+      <div class="next-num">2</div>
+      <div class="next-info">
+        <h4>Corrections techniques immédiates</h4>
+        <p>404, titles, metas, balises alt — livraison en J+15 après validation</p>
+      </div>
+    </div>
+    <div class="next-card">
+      <div class="next-num">3</div>
+      <div class="next-info">
+        <h4>Lancement 1er Topic Cluster IA</h4>
+        <p>Silo « Agence IA » — 3 articles + page pilier dédiée</p>
+      </div>
+    </div>
+    <div class="next-card">
+      <div class="next-num">4</div>
+      <div class="next-info">
+        <h4>Setup du reporting mensuel</h4>
+        <p>Dashboard GSC + suivi de positions + objectifs CTR par page</p>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+
+<script>
+// Scroll-triggered fade-in for sections
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.style.opacity = '1';
+      el.target.style.transform = 'translateY(0)';
+      observer.unobserve(el.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.kpi-card, .audit-card, .strat-card, .bl-card, .roadmap-month, .rhythm-card, .next-card, .finding-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+
+// Stagger cards in grids
+document.querySelectorAll('.kpi-grid .kpi-card, .stats-grid .stat-box').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.08}s`;
+});
+document.querySelectorAll('.strategy-grid .strat-card, .bl-grid .bl-card, .roadmap-months .roadmap-month').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.1}s`;
+});
+</script>
+</body>
+</html>
